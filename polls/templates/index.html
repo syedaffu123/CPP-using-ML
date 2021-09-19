@@ -1,0 +1,191 @@
+<html>
+{% load static %}
+<head>
+  <meta charset="UTF-8">
+  <title>Car Selling Price Prediction</title>
+<style>
+{% comment %}
+body{
+  background-color: #c133ce;
+  background-image: url("https://images.app.goo.gl/7YXnEKmJNw8tWrbSA");
+}
+{% endcomment %}
+
+body{
+    background-color: #f2f6fa;
+   background-attachment: fixed;
+    background-size: cover;
+    background-image: url("https://backgroundcheckall.com/wp-content/uploads/2017/12/corporate-background-images-9.jpg");
+}
+
+div.search {
+  width: 80%;
+  height: 36px;
+  position: relative;
+  display:flexbox;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+}
+
+input.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+  font-size: 20px;
+}
+
+select.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #222385;
+  font-size: 20px;
+}
+
+input.searchTerm:focus{
+  color: #00B4CC;
+}
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 26px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.searchButton {
+  background-color: white; 
+  color: black; 
+  border: 4px solid #008CBA;
+}
+.searchButton:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+div.wrap{
+  width: 60%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body.bg-image {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 300px;
+    max-height: 700px;
+}
+
+.bg-image[style^="background-image:"][style$=".svg)"] {
+  background-size: 400px 300px;
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/8/80/Wikipedia-logo-v2.svg)
+}
+</style>
+</head>
+<body> {% comment %} https://www.svgbackgrounds.com/ -> this site is good for bg images {% endcomment %}
+ <center> <h1 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;color: rgb(85, 44, 231);font-size: 3.3rem;font-weight: 1000;">CAR Selling  Price  Prediction</h1>
+ </center>
+ <center><p style="color: rgba(17, 19, 36, 0.589); font-family: cursive;font-size: 1.5rem;"><b>Welcome to the Car Selling Prediction Webapp. Please enter the details below to Predict <br>the price of CAR.</b></p>
+ </center> <div class="wrap">
+  <form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+   <div class="search">
+      <input name="Name" type="text" class="searchTerm" placeholder="Type your Car's Name here">
+   </div>
+    <br>
+      <div class="search">
+      <input name="year" type="text" class="searchTerm" placeholder="Manufacturing Year">
+   </div>
+    <br>
+      <div class="search">
+      <input name="km" type="text" class="searchTerm" placeholder="Km Driven">
+   </div>
+   <br>
+      <div class="search">
+      <select name="fuel" class="searchTerm">
+        <option selected>Fuel required by Car</option>
+        <option value="1">Petrol</option>
+        <option value="0">Diesel</option>
+        <option value="-1">CNG</option>
+        <option value="-1">LPG</option>
+    </select>
+   </div>
+    <br>
+      <div class="search">
+      <select name="dealer" class="searchTerm">
+        <option selected>Dealer Type</option>
+        <option value="1">Individual</option>
+        <option value="0">Dealer</option>
+        <option value="-1">Other</option>
+    </select>
+   </div>
+   <br>
+      <div class="search">
+      <select name="trans" class="searchTerm">
+        <option selected>Transmission type</option>
+        <option value="1">Manual</option>
+        <option value="0">Automated</option>
+    </select>
+   </div>
+    <br>
+      <div class="search">
+      <input name="seats" type="text" class="searchTerm" placeholder="Number of seats">
+   </div>
+    <br>
+      <div class="search">
+      <input name="rpm" type="text" class="searchTerm" placeholder="Torque in rpm">
+   </div>
+     <br>
+      <div class="search">
+      <input name="mil" type="text" class="searchTerm" placeholder="Mileage of the car">
+   </div>
+    <br>
+      <div class="search">
+      <input name="eng" type="text" class="searchTerm" placeholder="Engine power in cc">
+   </div>
+   <br>
+      <div class="search">
+      <input name="power" type="text" class="searchTerm" placeholder="Max power range (32 - 400)">
+   </div>
+   <br>
+      <div class="search">
+      <select name="owner" class="searchTerm">
+        <option selected>Ownership</option>
+        <option value="1">First Owner</option>
+        <option value="2">Second Owner</option>
+        <option value="3">Third Owner</option>
+        <option value="4">Fourth and Above owner</option>
+        <option value="5">Test Drive Vehicle</option>
+    </select>
+   </div>
+<br> <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button type="submit" name="pred_button" class="button searchButton"><b> Submit</b>
+        <i class="fa fa-search"></i>
+     </button></center>
+   </form>
+   {% if response %}
+      <h2 style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;color: rgb(85, 44, 231);font-size: 1.5.0rem;"><b>The Selling Price is: {{ response }}</b></h2>
+    {% endif %}
+</div>
+
+</body>
+</html>
