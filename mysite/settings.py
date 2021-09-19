@@ -26,7 +26,7 @@ SECRET_KEY = 'gr04^zox2^#g$_@d#x+&hyg=+187w$liq0wdls8gz7huc3y&cq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['car-selling-price-new.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['carpriceprediction1248.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
